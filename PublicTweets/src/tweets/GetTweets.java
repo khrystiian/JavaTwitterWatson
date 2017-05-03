@@ -32,6 +32,7 @@ public class GetTweets {
 			
 			statuses = twitter.getUserTimeline("@Arsenal", paging);
 			for (Status status : statuses) {
+				if(status.getRetweetedStatus() == null)
 				tweets_list += status.getText();
 			}
 			tweets_list = tweets_list.replaceAll("\\S+://\\S+", "").replaceAll("@", "").replaceAll("#", "");
